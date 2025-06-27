@@ -19,7 +19,7 @@ in
       kitty
       kitty-themes
       # optionally, a patched font:
-      nerd-fonts.fira-code
+      nerdfonts.override { fonts = [ "FiraCode" ]; }
     ];
     programs.bash.enable = true;
 
