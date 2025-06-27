@@ -1,0 +1,11 @@
+### Adaptive Sync to stop screen flickering full screen ###
+3440x1440 144hz AOC monitor as main
+Disable adaptive Sync
+System Settings > Display Configuration > Adaptive Sync, set to never
+
+### Cisco packet tracer 8.2.
+pkgname ciscoPacketTracer 8
+download it and run
+$ nix-store --add-fixed sha256 ~/Downloads/CiscoPacketTracer822_amd64_signed.deb
+this should store it permanently
+build should be successful
