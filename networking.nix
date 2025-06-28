@@ -26,6 +26,8 @@
     mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark
   ];
 
+  # Testing 
+
   programs.wireshark.enable = true;
   programs.wireshark.dumpcap.enable = true; 
   programs.wireshark.usbmon.enable  = false; 
