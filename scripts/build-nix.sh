@@ -1,21 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-sudo rm -r /etc/nixos/*
-sudo cp -ra /home/flacko/.config/nix-config/* /etc/nixos/
+CONFIG_DIR="$HOME/.config/nix-config"
+TARGET_DIR="/etc/nixos"
+BRANCH="main"
 
-# chown -R root:root /etc/nixos
+deploy() {
+  sudo rm -rf "${TARGET_DIR:?}"/*
+  sudo cp -ra "$CONFIG_DIR"/* "$TARGET_DIR"
+  sudo chmod +x "$TARGET_DIR"/setup/*.sh
+}
 
-# # Set directory and file permissions properly
-# find /etc/nixos -type d -exec chmod 755 {} \;
-# find /etc/nixos -type f -exec chmod 644 {} \;
+rebuild() {
+  nh os switch -f '<nixpkgs/nixos>' \
+    -- -I nixos-config="$TARGET_DIR/configuration.nix"
+}
 
-# # Set permissions for scripts directory explicitly
-# chmod 750 /etc/nixos/scripts
-# chmod 750 /etc/nixos/scripts/*.sh
-# chown root:users /etc/nixos/scripts
-# chown root:users /etc/nixos/scripts/*.sh
+commit_and_push() {
+  cd "$CONFIG_DIR"
+  git add .
+  read -rp "Commit title: " title
+  read -rp "Commit details: " details
+  git commit -m "$title" -m "$details"
+  git push origin "$BRANCH"
+}
 
-chmod +x /etc/nixos/setup/*.sh
+main() {
+  deploy
+  if rebuild; then
+    commit_and_push
+  else
+    echo "⛔ Build failed. Aborting commit." >&2
+    exit 1
+  fi
+}
 
-#nixos-rebuild switch --log-format bar
-nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config=/etc/nixos/configuration.nix
+main
