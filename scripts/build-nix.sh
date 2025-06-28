@@ -1,38 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIG_DIR="$HOME/.config/nix-config"
-TARGET_DIR="/etc/nixos"
+CONFIG="$HOME/.config/nix-config"
+TARGET="/etc/nixos"
 BRANCH="main"
 
-deploy() {
-  sudo rm -rf "${TARGET_DIR:?}"/*
-  sudo cp -ra "$CONFIG_DIR"/* "$TARGET_DIR"
-  sudo chmod +x "$TARGET_DIR"/setup/*.sh
+deploy() { 
+  sudo rm -rf "$TARGET"/* 
+  sudo cp -ra "$CONFIG"/* "$TARGET" 
+  sudo chmod +x "$TARGET"/setup/*.sh 
 }
 
-rebuild() {
-  nh os switch -f '<nixpkgs/nixos>' \
-    -- -I nixos-config="$TARGET_DIR/configuration.nix"
+rebuild() { 
+  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 
 }
 
-commit_and_push() {
-  cd "$CONFIG_DIR"
-  git add .
-  read -rp "Commit title: " title
-  read -rp "Commit details: " details
-  git commit -m "$title" -m "$details"
-  git push origin "$BRANCH"
+push_commit() { 
+  cd "$CONFIG" 
+  git add . 
+  read -rp "Commit title: " t 
+  read -rp "Commit details: " d 
+  git commit -m "$t" -m "$d" 
+  git push origin "$BRANCH" 
 }
 
-main() {
-  deploy
-  if rebuild; then
-    commit_and_push
-  else
-    echo "⛔ Build failed. Aborting commit." >&2
-    exit 1
-  fi
-}
-
-main
+deploy && rebuild && push_commit
