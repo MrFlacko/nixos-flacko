@@ -3,6 +3,7 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
+  # Need to add an alias to show aliases, I keep forgetting them
   environment.shellAliases = {
     build-nix = "bash /etc/nixos/scripts/build-nix.sh";
     pkgsearch = "bash /etc/nixos/scripts/pkgsearch.sh";

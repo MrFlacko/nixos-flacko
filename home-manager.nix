@@ -12,46 +12,13 @@ in
   users.users.flacko.isNormalUser = true;
   home-manager.users.flacko = { pkgs, ... }: {
     home.packages = with pkgs; [
-      kitty
-      kitty-themes
-      # optionally, a patched font:
       pkgs.nerd-fonts.fira-code
     ];
     programs.bash.enable = true;
 
     # Disable warning for version mismatch
     home.enableNixpkgsReleaseCheck = false;
-  
-    # The state version is required and should stay at the version you
-    # originally installed.
     home.stateVersion = "25.05";
-
-    programs.kitty = {
-      enable = true;
-        settings = {
-        # completely disable every bit of shell-integration
-        shell_integration   = "no-title no-cwd no-cursor no-rc";
-  
-        # now this really is your literal working directory
-        window_title_format = "{cwd}";
-  
-        # keep remote control around so mapping works anywhere
-        allow_remote_control = true;
-  
-        # Alt+Enter → new kitty in the same cwd
-        "map alt+enter"     = "launch --cwd=current kitty";
-  
-        # (plus all your other goodies…)
-        include             = "${pkgs.kitty-themes}/share/kitty-themes/themes/OneDark.conf";
-        font_family         = "Fira Code Nerd Font";
-        font_size           = 12.0;
-        enable_ligatures    = true;
-        scrollback_lines    = 10000;
-        background_opacity  = 0.9;
-        window_padding_width= 0;
-        line_padding        = 0;
-      };
-    };
 
     ## Caprine CSS Fix not showing dialog boxes
     # It shows preferences window at startup but I couldn't get around it.

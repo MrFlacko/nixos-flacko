@@ -2,12 +2,11 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   nixpkgs.config.allowUnfree = true;
 
+  # Making sure packet tracer can build from a specific version
   nixpkgs.overlays = [(
     final: prev:
     let legacyPkgs = import ( 
@@ -20,6 +19,7 @@
   services.flatpak.enable = true;
 
   # Gnome Keyring for ProtonVPN
+  # Probably not really needed tho
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring  = true;
   security.pam.services.login.enableGnomeKeyring = true;
@@ -33,16 +33,16 @@
     nh # Nix Helper
     
 
-    # Vesktop is probably better for wayland
-    (writeShellScriptBin "discord-hw" ''
-      exec env \
-        DISCORD_USE_PIPEWIRE=1 \
-        LIBVA_DRIVER_NAME=nvidia \
-        GTK_USE_PORTAL=1 \
-        ${pkgs.discord}/bin/discord \
-        --enable-features=VaapiVideoEncoder,VaapiVideoDecoder \
-        --use-gl=desktop "$@"
-    '')
+    # # Vesktop is probably better for wayland
+    # (writeShellScriptBin "discord-hw" ''
+    #   exec env \
+    #     DISCORD_USE_PIPEWIRE=1 \
+    #     LIBVA_DRIVER_NAME=nvidia \
+    #     GTK_USE_PORTAL=1 \
+    #     ${pkgs.discord}/bin/discord \
+    #     --enable-features=VaapiVideoEncoder,VaapiVideoDecoder \
+    #     --use-gl=desktop "$@"
+    # '')
 
     # Garbage ass shit code fuck you chatgpt
     # (writeShellScriptBin "packettracer-clean" ''

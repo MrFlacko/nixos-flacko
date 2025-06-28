@@ -23,10 +23,8 @@
     protonvpn-gui
     wireguard-tools
     iptables
-    mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark
+    mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
   ];
-
-  # Testing 
 
   programs.wireshark.enable = true;
   programs.wireshark.dumpcap.enable = true; 
