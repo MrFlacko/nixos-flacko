@@ -6,7 +6,7 @@
   # Proton GUI talks to NetworkManager + systemd-resolved
   networking.networkmanager = {
     enable = true;
-    dns    = "systemd-resolved";
+    dns = "systemd-resolved";
   };
   services.resolved.enable = true;
 
