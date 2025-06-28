@@ -6,26 +6,34 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # Overlay for PacketTracer
-  nixpkgs.overlays = [ (import ./overlays/packettracer.nix) ];
-
-  # Enable Firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.overlays = [(
+    final: prev:
+    let legacyPkgs = import ( 
+      builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-24.11.tar.gz" 
+      ) { inherit (prev) system config; };
+     in { ciscoPacketTracer8 = legacyPkgs.ciscoPacketTracer8; }
+  )];
+
+  programs.firefox.enable = true;
   services.flatpak.enable = true;
 
-  # System-wide packages.
+  # Gnome Keyring for ProtonVPN
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring  = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
   environment.systemPackages = with pkgs; [
     vim htop wget git neofetch btop qbittorrent mpv
-    google-chrome discord thunderbird
-    ranger nautilus util-linux
+    google-chrome vesktop thunderbird
+    ranger nautilus util-linux usbutils
     peek nix-output-monitor ciscoPacketTracer8
-    vscode.fhs gedit
-    caprine # Facebook Messenger Desktop App 
+    vscode.fhs gedit caprine
+    nh # Nix Helper
+    
 
-    # Discord wrapper (PipeWire capture + NVENC)
+    # Vesktop is probably better for wayland
     (writeShellScriptBin "discord-hw" ''
       exec env \
         DISCORD_USE_PIPEWIRE=1 \
@@ -35,5 +43,14 @@
         --enable-features=VaapiVideoEncoder,VaapiVideoDecoder \
         --use-gl=desktop "$@"
     '')
+
+    # Garbage ass shit code fuck you chatgpt
+    # (writeShellScriptBin "packettracer-clean" ''
+    #   exec ${runuser}/bin/runuser -u packettracer -- \
+    #     env QT_STYLE_OVERRIDE=fusion \
+    #         QT_QPA_PLATFORMTHEME="" \
+    #         XDG_CURRENT_DESKTOP=GNOME \
+    #     ${ciscoPacketTracer8}/bin/packettracer "$@"
+    # '')
   ];
 }

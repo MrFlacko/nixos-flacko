@@ -1,20 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
     [
-      ./boot.nix
+      ./hardware-configuration.nix
+      ./bootparams.nix
       ./display.nix
       ./networking.nix
       ./audio.nix
       ./shortcuts.nix
       ./packages.nix
       ./steam.nix
-      ./drivemounts.nix
       ./razer.nix
       ./home-manager.nix
     ];
@@ -23,6 +19,8 @@
   # Experimental Features Nix
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    max-jobs = "auto";
+    cores = 0;
   };
 
   # Set your time zone.
@@ -59,7 +57,7 @@
   users.users.flacko = {
     isNormalUser = true;
     description = "Joshua";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
