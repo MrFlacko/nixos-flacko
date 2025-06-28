@@ -32,18 +32,6 @@
     vscode.fhs gedit caprine git
     nh # Nix Helper
     
-
-    # # Vesktop is probably better for wayland
-    # (writeShellScriptBin "discord-hw" ''
-    #   exec env \
-    #     DISCORD_USE_PIPEWIRE=1 \
-    #     LIBVA_DRIVER_NAME=nvidia \
-    #     GTK_USE_PORTAL=1 \
-    #     ${pkgs.discord}/bin/discord \
-    #     --enable-features=VaapiVideoEncoder,VaapiVideoDecoder \
-    #     --use-gl=desktop "$@"
-    # '')
-
     # Garbage ass shit code fuck you chatgpt
     # (writeShellScriptBin "packettracer-clean" ''
     #   exec ${runuser}/bin/runuser -u packettracer -- \
