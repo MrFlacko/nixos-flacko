@@ -60,7 +60,7 @@ in
   users.users.flacko = {
     isNormalUser = true;
     description = "Joshua";
-    extraGroups = [ "networkmanager" "wheel" "audio" "wireshark" ];
+    extraGroups = [ "wheel" "video" "networkmanager" "wireshark" "audio" ];
     packages = with pkgs; [
       kdePackages.kate
     ];

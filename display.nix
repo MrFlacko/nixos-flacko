@@ -16,10 +16,10 @@
   ];
 
   hardware.nvidia = {
-    modesetting.enable = true;       # required for Wayland
-    nvidiaSettings     = true;
-    open   = false;                  # closed blobs for your 3070 Ti
-    package = config.boot.kernelPackages.nvidiaPackages.stable;   # 555.xx
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # Work-around: tell KWin to skip explicit-sync
@@ -27,10 +27,14 @@
   environment.sessionVariables.KWIN_DRM_NO_IMPLICIT_SYNC = "1";
 
   # KDE Plasma on Wayland (default)
-  services.xserver.enable                = true;
-  services.displayManager.sddm.enable    = true;
+  services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    wayland.compositor = "kwin";
+  };
 
   # ##########################################################
   # # Wide monitor not wide setup. This shit just doesn't work
