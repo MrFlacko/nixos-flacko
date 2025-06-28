@@ -15,7 +15,12 @@
     ./langtime.nix
   ];
 
-  
+  ## Custom Modules
+  _module.args.cmod = {
+    locale = "en_AU.UTF-8";
+    timezone = "Australia/Sydney";
+    kblayout = "au";
+  };
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

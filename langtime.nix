@@ -1,8 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, cmod, ... }:
 
-let locale = "en_AU.UTF-8"; in {
+let 
+  locale = cmod.locale; 
+  timezone = cmod.timezone;
+  kblayout = cmod.kblayout;
+in {
   # Set your time zone.
-  time.timeZone = "Australia/Sydney";
+  time.timeZone = timezone;
 
   # Select internationalisation properties.
   i18n.defaultLocale = locale;
@@ -20,7 +24,7 @@ let locale = "en_AU.UTF-8"; in {
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "au";
+    layout = kblayout;
     variant = "";
   };
 }
