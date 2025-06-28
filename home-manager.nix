@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, ... }:
 
 ## Home manager allows you to manager your system dot.files.
 # https://nix-community.github.io/home-manager/index.xhtml#ch-installation

@@ -15,7 +15,7 @@
   networking.firewall.checkReversePath = false;
 
   boot.kernel.sysctl = {
-    "net.ipv4.conf.all.rp_filter"     = 2;
+    "net.ipv4.conf.all.rp_filter" = 2;
     "net.ipv4.conf.default.rp_filter" = 2;
   };
 

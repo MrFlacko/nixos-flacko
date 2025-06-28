@@ -1,8 +1,6 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
   # Steam + official Proton
   programs.steam = {
     enable = true;

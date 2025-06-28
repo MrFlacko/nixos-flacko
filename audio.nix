@@ -4,9 +4,9 @@
   boot.kernelModules = [ "snd_usb_audio" ];
 
   services.pipewire = {
-    enable        = true;
-    alsa.enable   = true;
-    pulse.enable  = true;
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
 
     wireplumber = {
       enable = true;

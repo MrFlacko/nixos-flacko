@@ -1,5 +1,5 @@
 
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   users.users.flacko = {
