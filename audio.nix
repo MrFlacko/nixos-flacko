@@ -8,13 +8,13 @@
   # your existing pipewire section …
   services.pipewire = {
     enable = true;
-    alsa.enable        = true;   # this is the ALSA bridge
-    alsa.support32Bit  = true;
-    pulse.enable       = true;   # Pulse-compat server
+    alsa.enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   # optional: tools like aplay/pw-cli for troubleshooting
-  environment.systemPackages = with pkgs; [ alsa-utils pipewire ];
+  environment.systemPackages = with pkgs; [ alsa-utils pipewire wireplumber ];
 
   users.users.flacko.extraGroups = [ "audio" ];
 }
