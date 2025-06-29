@@ -20,11 +20,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    protonvpn-gui protonvpn-cli
+    protonvpn-gui
     wireguard-tools
     iptables
     mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
   ];
+
+  boot.kernelModules = [ "wireguard" ];
 
   programs.wireshark.enable = true;
   programs.wireshark.dumpcap.enable = true; 
