@@ -20,7 +20,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    protonvpn-gui
+    protonvpn-gui protonvpn-cli
     wireguard-tools
     iptables
     mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
