@@ -28,5 +28,3 @@ deploy && rebuild && {
   read -rp "Build succeeded. Commit to Git? [y/N] " yn
   [[ $yn =~ ^[Yy]$ ]] && push_commit || echo "Skipping commit."
 }
-
-# Test1
