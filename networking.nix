@@ -7,8 +7,12 @@
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
+    plugins = [ 
+      pkgs.networkmanager-openvpn 
+    ];
   };
   services.resolved.enable = true;
+  services.dbus.enable = true;
 
   # Disable reverse-path filtering – without this the tunnel
   # comes up, packets get dropped, the client reconnects forever.
@@ -23,6 +27,7 @@
     protonvpn-gui
     wireguard-tools
     iptables
+    networkmanager-openvpn
     mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
   ];
 
