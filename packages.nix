@@ -18,9 +18,9 @@
 
   # Gnome Keyring for ProtonVPN
   # Probably not really needed tho
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring  = true;
-  security.pam.services.login.enableGnomeKeyring = true;
+  # services.gnome.gnome-keyring.enable = true;
+  # security.pam.services.sddm.enableGnomeKeyring  = true;
+  # security.pam.services.login.enableGnomeKeyring = true;
 
   environment.systemPackages = with pkgs; [
     vim htop wget git neofetch btop qbittorrent mpv
