@@ -29,4 +29,4 @@ deploy && rebuild && {
   [[ $yn =~ ^[Yy]$ ]] && push_commit || echo "Skipping commit."
 }
 
-# Testing 1
+# Testing 2
