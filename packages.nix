@@ -28,7 +28,7 @@
     ranger nautilus util-linux usbutils
     peek nix-output-monitor ciscoPacketTracer8
     vscode.fhs gedit caprine git
-    nh # Nix Helper
+    nh neovim# Nix Helper
     
     # Garbage ass shit code fuck you chatgpt
     # (writeShellScriptBin "packettracer-clean" ''
