@@ -24,7 +24,7 @@
 
   environment.systemPackages = with pkgs; [
     vim htop wget git neofetch btop qbittorrent mpv
-    google-chrome vesktop thunderbird
+    google-chrome vesktop thunderbird libreoffice-still
     ranger nautilus util-linux usbutils
     peek nix-output-monitor ciscoPacketTracer8
     vscode.fhs gedit caprine git qalculate-qt
