@@ -27,7 +27,7 @@
     google-chrome vesktop thunderbird
     ranger nautilus util-linux usbutils
     peek nix-output-monitor ciscoPacketTracer8
-    vscode.fhs gedit caprine git
+    vscode.fhs gedit caprine git qalculate-qt
     nh neovim# Nix Helper
     
     # Garbage ass shit code fuck you chatgpt
