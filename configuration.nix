@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
+let
+  cmod = {
+    locale = "en_AU.UTF-8";
+    timezone = "Australia/Sydney";
+    kblayout = "au";
+    docker = true;
+  };
+in  
 {
+  _module.args.cmod = cmod;
+
   imports = [
     ./hardware-configuration.nix
     ./display.nix
@@ -13,14 +23,9 @@
     ./home-manager.nix
     ./users.nix
     ./langtime.nix
-  ];
-
-  ## Custom Modules
-  _module.args.cmod = {
-    locale = "en_AU.UTF-8";
-    timezone = "Australia/Sydney";
-    kblayout = "au";
-  };
+  ]
+  ++ (if cmod.docker then [ ./docker.nix ] else [])
+  ;
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
