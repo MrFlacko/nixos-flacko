@@ -7,6 +7,7 @@ let
     kblayout = "au";
     docker = false;
     shortcuts = true;
+    keyring = true;
   };
 in  
 {
@@ -26,6 +27,7 @@ in
   ]
   ++ (if cmod.docker then [ ./docker.nix ] else [])
   ++ (if cmod.docker then [ ./shortcuts.nix ] else [])
+  ++ (if cmod.docker then [ ./keyring.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;
