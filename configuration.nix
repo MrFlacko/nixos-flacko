@@ -6,6 +6,7 @@ let
     timezone = "Australia/Sydney";
     kblayout = "au";
     docker = false;
+    shortcuts = true;
   };
 in  
 {
@@ -16,15 +17,15 @@ in
     ./display.nix
     ./networking.nix
     ./audio.nix
-    ./shortcuts.nix
-    ./packages.nix
     ./steam.nix
+    ./packages.nix
     ./razer.nix
     ./home-manager.nix
     ./users.nix
     ./langtime.nix
   ]
   ++ (if cmod.docker then [ ./docker.nix ] else [])
+  ++ (if cmod.docker then [ ./shortcuts.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;
