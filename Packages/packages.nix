@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     wget git neofetch btop qbittorrent mpv
     google-chrome vesktop thunderbird libreoffice-still
-    ranger nautilus util-linux usbutils
+    ranger util-linux usbutils
     peek nix-output-monitor
     vscode.fhs gedit caprine git qalculate-qt
     nh neovim# Nix Helper
