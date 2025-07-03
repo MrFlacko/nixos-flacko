@@ -8,6 +8,7 @@ let
     docker = false;
     shortcuts = true;
     keyring = true;
+    packettracer = true;
   };
 in  
 {
@@ -32,6 +33,7 @@ in
   ++ (if cmod.docker then [ ./Modules/docker.nix ] else [])
   ++ (if cmod.shortcuts then [ ./Modules/shortcuts.nix ] else [])
   ++ (if cmod.keyring then [ ./Modules/keyring.nix ] else [])
+  ++ (if cmod.packettracer then [ ./Modules/packettracer.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;

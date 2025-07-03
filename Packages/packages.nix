@@ -4,39 +4,15 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  # Making sure packet tracer can build from a specific version
-  nixpkgs.overlays = [(
-    final: prev:
-    let legacyPkgs = import ( 
-      builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-24.11.tar.gz" 
-      ) { inherit (prev) system config; };
-     in { ciscoPacketTracer8 = legacyPkgs.ciscoPacketTracer8; }
-  )];
-
   programs.firefox.enable = true;
   services.flatpak.enable = true;
-
-  # Gnome Keyring for ProtonVPN
-  # Probably not really needed tho
-  # services.gnome.gnome-keyring.enable = true;
-  # security.pam.services.sddm.enableGnomeKeyring  = true;
-  # security.pam.services.login.enableGnomeKeyring = true;
 
   environment.systemPackages = with pkgs; [
     wget git neofetch btop qbittorrent mpv
     google-chrome vesktop thunderbird libreoffice-still
     ranger nautilus util-linux usbutils
-    peek nix-output-monitor ciscoPacketTracer8
+    peek nix-output-monitor
     vscode.fhs gedit caprine git qalculate-qt
     nh neovim# Nix Helper
-    
-    # Garbage ass shit code fuck you chatgpt
-    # (writeShellScriptBin "packettracer-clean" ''
-    #   exec ${runuser}/bin/runuser -u packettracer -- \
-    #     env QT_STYLE_OVERRIDE=fusion \
-    #         QT_QPA_PLATFORMTHEME="" \
-    #         XDG_CURRENT_DESKTOP=GNOME \
-    #     ${ciscoPacketTracer8}/bin/packettracer "$@"
-    # '')
   ];
 }
