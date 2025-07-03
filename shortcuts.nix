@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, cmod, ... }:
 
 {
   # Need to add an alias to show aliases, I keep forgetting them
