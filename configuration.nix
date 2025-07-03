@@ -8,7 +8,7 @@ let
     docker = false;
     shortcuts = true;
     keyring = true;
-    packettracer = true;
+    packettracer = false;
   };
 in  
 {
