@@ -8,7 +8,7 @@ BRANCH="main"
 deploy() {
   sudo rm -rf "$TARGET"/*
   sudo cp -ra "$CONFIG"/* "$TARGET"
-  sudo chmod +x "$TARGET"/setup/*.sh
+  sudo chmod +x "$TARGET"/Scripts/*.sh
 }
 
 rebuild() {
