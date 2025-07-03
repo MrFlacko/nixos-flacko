@@ -14,20 +14,24 @@ in
   _module.args.cmod = cmod;
 
   imports = [
+    # Normal
     ./hardware-configuration.nix
-    ./display.nix
-    ./networking.nix
-    ./audio.nix
-    ./steam.nix
-    ./packages.nix
-    ./razer.nix
     ./home-manager.nix
     ./users.nix
     ./langtime.nix
+
+    # Packages
+    ./Packages/display.nix
+    ./Packages/networking.nix
+    ./Packages/audio.nix
+    ./Packages/steam.nix
+    ./Packages/packages.nix
+    ./Packages/razer.nix
   ]
-  ++ (if cmod.docker then [ ./docker.nix ] else [])
-  ++ (if cmod.shortcuts then [ ./shortcuts.nix ] else [])
-  ++ (if cmod.keyring then [ ./keyring.nix ] else [])
+  # Modules
+  ++ (if cmod.docker then [ ./Modules/docker.nix ] else [])
+  ++ (if cmod.shortcuts then [ ./Modules/shortcuts.nix ] else [])
+  ++ (if cmod.keyring then [ ./Modules/keyring.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;

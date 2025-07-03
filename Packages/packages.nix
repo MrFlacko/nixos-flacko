@@ -23,7 +23,7 @@
   # security.pam.services.login.enableGnomeKeyring = true;
 
   environment.systemPackages = with pkgs; [
-    vim htop wget git neofetch btop qbittorrent mpv
+    wget git neofetch btop qbittorrent mpv
     google-chrome vesktop thunderbird libreoffice-still
     ranger nautilus util-linux usbutils
     peek nix-output-monitor ciscoPacketTracer8
