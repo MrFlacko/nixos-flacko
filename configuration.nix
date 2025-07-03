@@ -9,6 +9,7 @@ let
     shortcuts = true;
     keyring = true;
     packettracer = false;
+    virtmanager = true;
   };
 in  
 {
@@ -34,6 +35,7 @@ in
   ++ (if cmod.shortcuts then [ ./Modules/shortcuts.nix ] else [])
   ++ (if cmod.keyring then [ ./Modules/keyring.nix ] else [])
   ++ (if cmod.packettracer then [ ./Modules/packettracer.nix ] else [])
+  ++ (if cmod.virtmanager then [ ./Modules/virtmanager.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;
