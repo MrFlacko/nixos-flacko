@@ -26,8 +26,8 @@ in
     ./langtime.nix
   ]
   ++ (if cmod.docker then [ ./docker.nix ] else [])
-  ++ (if cmod.docker then [ ./shortcuts.nix ] else [])
-  ++ (if cmod.docker then [ ./keyring.nix ] else [])
+  ++ (if cmod.shortcuts then [ ./shortcuts.nix ] else [])
+  ++ (if cmod.keyring then [ ./keyring.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;
