@@ -5,7 +5,7 @@ let
     locale = "en_AU.UTF-8";
     timezone = "Australia/Sydney";
     kblayout = "au";
-    docker = false;
+    docker = true;
     shortcuts = true;
     keyring = true;
     packettracer = false;
