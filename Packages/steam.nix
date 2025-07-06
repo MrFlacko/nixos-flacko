@@ -14,6 +14,6 @@
 
   # optional: Proton-GE updater
   environment.systemPackages = with pkgs; [
-    protonup-qt                         
+    protonup-qt gamescope
   ];
 }
