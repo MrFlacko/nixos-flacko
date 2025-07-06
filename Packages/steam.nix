@@ -11,9 +11,12 @@
 
   # 32-bit drivers (needed for Proton)
   hardware.graphics.enable32Bit = true;
-
+  hardware.nvidia.modesetting.enable = true;
+  
   # optional: Proton-GE updater
   environment.systemPackages = with pkgs; [
     protonup-qt gamescope
   ];
+
+  services.power-profiles-daemon.enable = true;
 }
