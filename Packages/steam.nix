@@ -19,5 +19,10 @@
     protonup-qt gamescope
   ];
 
+  services.xserver = {
+    enable = true;               # pulls in Xwayland – needed even on Wayland
+    videoDrivers = [ "nvidia" ]; # use the proprietary driver
+  };
+
   services.power-profiles-daemon.enable = true;
 }
