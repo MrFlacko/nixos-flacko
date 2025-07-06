@@ -11,8 +11,9 @@
     wget git neofetch btop qbittorrent mpv
     google-chrome vesktop thunderbird libreoffice-still
     ranger util-linux usbutils
-    peek nix-output-monitor
+    peek nix-output-monitor neovim
     vscode.fhs gedit caprine git qalculate-qt
-    nh neovim# Nix Helper
+    nh # Nix Helper
+    wayland-utils weston
   ];
 }
