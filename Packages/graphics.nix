@@ -18,5 +18,10 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  services.displayManager.sddm = {
+    wayland.enable = true;
+    wayland.compositor = "kwin";
+  };
+
   services.displayManager.sddm.enable = true;
 }

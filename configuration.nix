@@ -10,12 +10,15 @@ let
     keyring = true;
     packettracer = false;
     virtmanager = true;
-    display-wayland = true;
-    display-xorg = false;
+    display-plasma = true;
+    display-cinnamon = true;
   };
 in  
 {
   _module.args.cmod = cmod;
+
+  # Define default sessions
+  services.displayManager.defaultSession = "plasma";
 
   imports = [
     # Normal
@@ -38,8 +41,8 @@ in
   ++ (if cmod.keyring then [ ./Modules/keyring.nix ] else [])
   ++ (if cmod.packettracer then [ ./Modules/packettracer.nix ] else [])
   ++ (if cmod.virtmanager then [ ./Modules/virtmanager.nix ] else [])
-  ++ (if cmod.display-wayland then [ ./Modules/display-wayland.nix ] else [])
-  ++ (if cmod.display-xorg then [ ./Modules/display-xorg.nix ] else [])
+  ++ (if cmod.display-plasma then [ ./Modules/display-plasma.nix ] else [])
+  ++ (if cmod.display-cinnamon then [ ./Modules/display-cinnamon.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;
