@@ -8,6 +8,6 @@
   services.displayManager.defaultSession = "cinnamon";
 
   environment.systemPackages = with pkgs; [
-    adwaita-icon-theme
+    papirus-icon-theme
   ];
 }
