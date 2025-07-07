@@ -30,6 +30,7 @@ in
     ./Packages/steam.nix
     ./Packages/packages.nix
     ./Packages/razer.nix
+    ./Packages/graphics.nix
   ]
   # Modules
   ++ (if cmod.docker then [ ./Modules/docker.nix ] else [])
@@ -37,8 +38,8 @@ in
   ++ (if cmod.keyring then [ ./Modules/keyring.nix ] else [])
   ++ (if cmod.packettracer then [ ./Modules/packettracer.nix ] else [])
   ++ (if cmod.virtmanager then [ ./Modules/virtmanager.nix ] else [])
-  ++ (if cmod.virtmanager then [ ./Modules/display-wayland.nix ] else [])
-  ++ (if cmod.virtmanager then [ ./Modules/display-xorg.nix ] else [])
+  ++ (if cmod.display-wayland then [ ./Modules/display-wayland.nix ] else [])
+  ++ (if cmod.display-xorg then [ ./Modules/display-xorg.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;
