@@ -20,9 +20,13 @@
   ];
 
   services.xserver = {
-    enable = true;               # pulls in Xwayland – needed even on Wayland
+    enable = true; # pulls in Xwayland – needed even on Wayland
     videoDrivers = [ "nvidia" ]; # use the proprietary driver
   };
 
   services.power-profiles-daemon.enable = true;
+  
+  # Limit CPU to 85%
+  systemd.user.services.steam.serviceConfig.CPUQuota = "85%";
+
 }
