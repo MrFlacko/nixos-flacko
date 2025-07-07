@@ -19,9 +19,13 @@
   };
 
   services.displayManager.sddm = {
+    enable = true;
     wayland.enable = true;
     wayland.compositor = "kwin";
+    theme = "elarun"; # ls /run/current-system/sw/share/sddm/themes/
   };
 
-  services.displayManager.sddm.enable = true;
+  environment.systemPackages = with pkgs; [
+    kdePackages.sddm-kcm
+  ];
 }
