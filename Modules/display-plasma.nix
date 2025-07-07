@@ -4,6 +4,9 @@
 {
   # KDE Plasma on Wayland (default)
   services.desktopManager.plasma6.enable = true;
+  
+  services.displayManager.defaultSession = "plasma";
+
 
   # Work-around: tell KWin to skip explicit-sync
   # (stops the page-flip time-outs that freeze)

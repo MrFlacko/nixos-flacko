@@ -10,15 +10,12 @@ let
     keyring = true;
     packettracer = false;
     virtmanager = true;
-    display-plasma = true;
+    display-plasma = false;
     display-cinnamon = true;
   };
 in  
 {
   _module.args.cmod = cmod;
-
-  # Define default sessions
-  services.displayManager.defaultSession = "plasma";
 
   imports = [
     # Normal
