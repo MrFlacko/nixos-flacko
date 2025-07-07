@@ -5,4 +5,6 @@
 
 {
   services.xserver = { desktopManager.cinnamon.enable = true; };
+  services.displayManager.defaultSession = "cinnamon";
+
 }
