@@ -14,6 +14,6 @@
     peek nix-output-monitor neovim
     vscode.fhs gedit caprine git qalculate-qt
     nh # Nix Helper
-    wayland-utils weston
+    wayland-utils weston 
   ];
 }

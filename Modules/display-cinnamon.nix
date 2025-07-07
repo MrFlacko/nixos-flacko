@@ -7,4 +7,7 @@
   services.xserver = { desktopManager.cinnamon.enable = true; };
   services.displayManager.defaultSession = "cinnamon";
 
+  environment.systemPackages = with pkgs; [
+    adwaita-icon-theme
+  ];
 }
