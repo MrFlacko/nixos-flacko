@@ -10,6 +10,8 @@ let
     keyring = true;
     packettracer = false;
     virtmanager = true;
+    display-wayland = true;
+    display-xorg = false;
   };
 in  
 {
@@ -23,7 +25,6 @@ in
     ./langtime.nix
 
     # Packages
-    ./Packages/display.nix
     ./Packages/networking.nix
     ./Packages/audio.nix
     ./Packages/steam.nix
@@ -36,6 +37,8 @@ in
   ++ (if cmod.keyring then [ ./Modules/keyring.nix ] else [])
   ++ (if cmod.packettracer then [ ./Modules/packettracer.nix ] else [])
   ++ (if cmod.virtmanager then [ ./Modules/virtmanager.nix ] else [])
+  ++ (if cmod.virtmanager then [ ./Modules/display-wayland.nix ] else [])
+  ++ (if cmod.virtmanager then [ ./Modules/display-xorg.nix ] else [])
   ;
   
   boot.loader.systemd-boot.enable = true;

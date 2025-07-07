@@ -1,5 +1,5 @@
 # /etc/nixos/display.nix  – edited to stop the NVIDIA 555 Wayland freeze
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, cmod, ... }:
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];

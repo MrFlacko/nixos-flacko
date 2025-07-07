@@ -25,8 +25,5 @@
   };
 
   services.power-profiles-daemon.enable = true;
-  
-  # Limit CPU to 85%
-  systemd.user.services.steam.serviceConfig.CPUQuota = "85%";
 
 }
