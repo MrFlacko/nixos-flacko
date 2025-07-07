@@ -5,8 +5,6 @@
 
 {
   services.xserver = { desktopManager.cinnamon.enable = true; };
-  services.displayManager.defaultSession = "cinnamon";
-
   environment.systemPackages = with pkgs; [
     papirus-icon-theme
   ];

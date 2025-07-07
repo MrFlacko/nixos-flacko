@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  cmod = {
+let cmod = {
     locale = "en_AU.UTF-8";
     timezone = "Australia/Sydney";
     kblayout = "au";
@@ -13,10 +12,12 @@ let
     display-plasma = false;
     display-cinnamon = true;
   };
-in  
-{
+  defaultSession =
+    if cmod.display-plasma then "plasma"
+    else if cmod.display-cinnamon then "cinnamon"
+    else null;
+in {
   _module.args.cmod = cmod;
-
   imports = [
     # Normal
     ./hardware-configuration.nix
@@ -41,6 +42,8 @@ in
   ++ (if cmod.display-plasma then [ ./Modules/display-plasma.nix ] else [])
   ++ (if cmod.display-cinnamon then [ ./Modules/display-cinnamon.nix ] else [])
   ;
+  
+  services.displayManager.defaultSession = defaultSession;
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
