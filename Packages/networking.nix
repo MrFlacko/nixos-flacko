@@ -31,6 +31,11 @@
     mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
   ];
 
+  ## Extra Hosts 
+  networking.extraHosts = ''
+    10.0.0.149 watch.flacko.net
+  '';
+
   boot.kernelModules = [ "wireguard" ];
 
   programs.wireshark.enable = true;
