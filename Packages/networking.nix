@@ -33,7 +33,7 @@
 
   ## Extra Hosts 
   networking.extraHosts = ''
-    10.0.0.149 watch.flacko.net
+    172.16.0.10 watch.flacko.net
   '';
 
   boot.kernelModules = [ "wireguard" ];
