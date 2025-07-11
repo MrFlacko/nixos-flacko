@@ -11,6 +11,7 @@ let cmod = {
     virtmanager = true;
     display-plasma = false;
     display-cinnamon = true;
+    nfs = true;
   };
   defaultSession =
     if cmod.display-plasma then "plasma"
@@ -41,6 +42,8 @@ in {
   ++ (if cmod.virtmanager then [ ./Modules/virtmanager.nix ] else [])
   ++ (if cmod.display-plasma then [ ./Modules/display-plasma.nix ] else [])
   ++ (if cmod.display-cinnamon then [ ./Modules/display-cinnamon.nix ] else [])
+  ++ (if cmod.nfs then [ ./Modules/nfs.nix ] else [])
+  
   ;
   
   services.displayManager.defaultSession = defaultSession;
