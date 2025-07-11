@@ -15,5 +15,6 @@
     vscode.fhs gedit caprine git qalculate-qt
     nh # Nix Helper
     wayland-utils weston 
+    filezilla
   ];
 }
