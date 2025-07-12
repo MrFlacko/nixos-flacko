@@ -35,6 +35,7 @@
   networking.extraHosts = ''
     172.16.0.10 watch.flacko.net
     172.16.0.10 status.flacko.net
+    172.16.0.10 request.flacko.net
   '';
 
   boot.kernelModules = [ "wireguard" ];
