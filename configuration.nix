@@ -11,6 +11,7 @@ let cmod = {
     virtmanager = true;
     display-plasma = false;
     display-cinnamon = true;
+    jellyfin = true;
     nfs = true;
   };
   defaultSession =
@@ -42,6 +43,7 @@ in {
   ++ (if cmod.virtmanager then [ ./Modules/virtmanager.nix ] else [])
   ++ (if cmod.display-plasma then [ ./Modules/display-plasma.nix ] else [])
   ++ (if cmod.display-cinnamon then [ ./Modules/display-cinnamon.nix ] else [])
+  ++ (if cmod.jellyfin then [ ./Modules/jellyfin.nix ] else [])
   ++ (if cmod.nfs then [ ./Modules/nfs.nix ] else [])
   
   ;
