@@ -28,7 +28,7 @@
     wireguard-tools
     iptables
     networkmanager-openvpn
-    mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
+    mtr whois inetutils nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
   ];
 
   ## Extra Hosts 
