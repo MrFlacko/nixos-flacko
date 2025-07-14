@@ -31,6 +31,11 @@
     mtr whois nmap bind.dnsutils tcpdump iperf3 ethtool bmon wireshark # Some nice networking tools
   ];
 
+  # might be better https://wiki.nixos.org/wiki/Mtr
+  #
+  # programs.mtr.enable = true;
+  # services.mtr-exporter.enable = true;
+
   ## Extra Hosts 
   networking.extraHosts = ''
     172.16.0.10 watch.flacko.net

@@ -16,5 +16,6 @@
     nh # Nix Helper
     wayland-utils weston 
     filezilla
+    dia
   ];
 }
