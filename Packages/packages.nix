@@ -17,5 +17,6 @@
     wayland-utils weston 
     filezilla
     dia
+    mattermost-desktop
   ];
 }
