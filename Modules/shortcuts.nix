@@ -9,5 +9,6 @@
     blackscreen = "bash /etc/nixos/Scripts/blackscreen.sh";
     nixopen = "code /home/flacko/.config/nix-config";
     pkgedit = "code /home/flacko/.config/nix-config/packages.nix";
+    traceroute = "mtr";
   };
 }
