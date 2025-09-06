@@ -10,13 +10,31 @@
   environment.systemPackages = with pkgs; [
     wget git neofetch btop qbittorrent mpv
     google-chrome vesktop thunderbird libreoffice-still
-    ranger util-linux usbutils
+    ranger util-linux usbutils htop
     peek nix-output-monitor neovim
     vscode.fhs gedit caprine git qalculate-qt
     nh # Nix Helper
     wayland-utils weston 
     filezilla
     dia
-    mattermost-desktop
+    pkgs.r2modman
+    # mattermost-desktop
+    # gnupg pinentry
   ];
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      layer-shell-qt = final.kdePackages.layer-shell-qt;
+      libsForQt5 = prev.libsForQt5 // {
+        layer-shell-qt = final.kdePackages.layer-shell-qt;
+      };
+    })
+  ];
+  
+services.teamviewer.enable = true;
 }

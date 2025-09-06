@@ -7,7 +7,7 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    extraCompatPackages = with pkgs; [ proton-ge-bin ]; # Adding proton-ge-bin
+    extraCompatPackages = with pkgs; [ proton-ge-bin ]; # Adding proton-ge-bin5
   };
 
   # 32-bit drivers (needed for Proton)
@@ -24,6 +24,10 @@
     videoDrivers = [ "nvidia" ]; # use the proprietary driver
   };
 
-  services.power-profiles-daemon.enable = true;
+  programs.gamemode.enable = true;
+  environment.variables = {
+    __GL_MaxFramesAllowed = "1";   # Nvidia, 1 frame queue
+  };
 
+  services.power-profiles-daemon.enable = true;
 }

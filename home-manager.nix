@@ -8,7 +8,6 @@ let
 in
 {
   imports = [ (import "${home-manager}/nixos") ];
-
   users.users.flacko.isNormalUser = true;
   home-manager.users.flacko = { pkgs, ... }: {
     home.packages = with pkgs; [

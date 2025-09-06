@@ -4,15 +4,16 @@ let cmod = {
     locale = "en_AU.UTF-8";
     timezone = "Australia/Sydney";
     kblayout = "au";
-    docker = false;
+    docker = true;
     shortcuts = true;
     keyring = true;
-    packettracer = true;
+    packettracer = false;
     virtmanager = false;
     display-plasma = false;
     display-cinnamon = true;
     jellyfin = true;
-    nfs = true;
+    audacity = true;
+    nfs = false;
   };
   defaultSession =
     if cmod.display-plasma then "plasma"
@@ -44,8 +45,8 @@ in {
   ++ (if cmod.display-plasma then [ ./Modules/display-plasma.nix ] else [])
   ++ (if cmod.display-cinnamon then [ ./Modules/display-cinnamon.nix ] else [])
   ++ (if cmod.jellyfin then [ ./Modules/jellyfin.nix ] else [])
+  ++ (if cmod.audacity then [ ./Modules/audacity.nix ] else [])
   ++ (if cmod.nfs then [ ./Modules/nfs.nix ] else [])
-  
   ;
   
   services.displayManager.defaultSession = defaultSession;
@@ -60,8 +61,23 @@ in {
     cores = 0;
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser ];
+    openFirewall = true;
+  };
 
-  system.stateVersion = "25.05"; # Did you read the comment? NUP haha
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  nixpkgs.config = {
+    allowUnfree = true;  # you likely already need this for Packet Tracer
+    permittedInsecurePackages = [ "qtwebengine-5.15.19" ];
+  };
+
+
+  system.stateVersion = "25.05"; 
 }

@@ -20,8 +20,8 @@
 
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-    wayland.compositor = "kwin";
+    wayland.enable = false;
+#    wayland.compositor = "kwin";
     theme = "elarun"; # ls /run/current-system/sw/share/sddm/themes/
   };
 

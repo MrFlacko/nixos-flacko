@@ -11,6 +11,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.blacklistedKernelModules = [ "tpm" "tpm_tis" "tpm_crb" ];
 
   swapDevices = [ { device = "/dev/disk/by-uuid/5311896b-fede-4e76-80b0-cc629e42a441"; } ];
 
@@ -28,17 +29,16 @@
   };
 
   # 500GB SSD "LinuxGames"
-  fileSystems."/mnt/LinuxGames" = {
-    device  = "/dev/disk/by-uuid/4590010d-17ac-4e5d-a1ca-4e03b0777221";
-    fsType  = "ext4";
-    options = [ "noatime" ];
-  };
+  #fileSystems."/mnt/LinuxGames" = {
+  #  device  = "/dev/disk/by-uuid/4590010d-17ac-4e5d-a1ca-4e03b0777221";
+  #  fsType  = "ext4";
+  #  options = [ "noatime" ];
+  #};
 
-  # 1 TB SSD “Games”
   fileSystems."/mnt/Games" = {
-    device  = "/dev/disk/by-uuid/42ACD2E1ACD2CE93";   # /dev/sdc1
-    fsType  = "ntfs";
-    options = [ "uid=1000" "gid=100" "windows_names" "big_writes" "fmask=0000" "dmask=0000"];
+    device  = "/dev/disk/by-uuid/d02588e1-9d3c-4dba-9346-13cfb8a6fe7d"; # <- new UUID
+    fsType  = "ext4";
+    options = [ "noatime" "nofail" "x-systemd.device-timeout=20" ];
   };
 
   # 8 TB HDD “I Was Here”
