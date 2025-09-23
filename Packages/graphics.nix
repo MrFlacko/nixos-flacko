@@ -25,14 +25,7 @@
       vaapiVdpau
       libva
       mesa-demos
-      amdgpu_top
-      nvtopPackages.amd
-      radeontop
-      lm_sensors
       vulkan-tools
-      pciutils
-      corectrl
-      rocmPackages.rocm-smi
     ];
   };
 
@@ -45,5 +38,13 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm
+    amdgpu_top
+    nvtopPackages.amd
+    radeontop
+    lm_sensors
+    vulkan-tools
+    pciutils
+    corectrl
+    rocmPackages.rocm-smi
   ];
 }
