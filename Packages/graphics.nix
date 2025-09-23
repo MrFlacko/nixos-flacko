@@ -25,7 +25,14 @@
       vaapiVdpau
       libva
       mesa-demos
+      amdgpu_top
+      nvtopPackages.amd
+      radeontop
+      lm_sensors
       vulkan-tools
+      pciutils
+      corectrl
+      rocmPackages.rocm-smi
     ];
   };
 
