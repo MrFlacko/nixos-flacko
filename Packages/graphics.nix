@@ -5,8 +5,12 @@
   #Nvidia  services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.enable = true; # Use for both wayland and xorg
+  services.fwupd.enable = true;
+  hardware.enableRedistributableFirmware = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
 
 #Nvidia  boot.kernelParams = [ 
 #Nvidia    "nvidia-drm.modeset=1" 
@@ -35,12 +39,9 @@
 #    wayland.compositor = "kwin";
     theme = "elarun"; # ls /run/current-system/sw/share/sddm/themes/
   };
-
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm
     amdgpu_top
-    nvtopPackages.amd
-    radeontop
     lm_sensors
     vulkan-tools
     pciutils
