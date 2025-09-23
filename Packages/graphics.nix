@@ -2,20 +2,31 @@
 { config, lib, pkgs, modulesPath, cmod, ... }:
 
 {
-  hardware.graphics.enable  = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  #Nvidia  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.enable = true; # Use for both wayland and xorg
 
-  boot.kernelParams = [ 
-    "nvidia-drm.modeset=1" 
-    "nvidia-modeset.conceal_vrr_caps=1"
-  ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+#Nvidia  boot.kernelParams = [ 
+#Nvidia    "nvidia-drm.modeset=1" 
+#Nvidia    "nvidia-modeset.conceal_vrr_caps=1"
+#Nvidia  ];
+
+#Nvidia  hardware.nvidia = {
+#Nvidia    modesetting.enable = true;
+#Nvidia    nvidiaSettings = true;
+#Nvidia    open = false;
+#Nvidia    package = config.boot.kernelPackages.nvidiaPackages.stable;
+#Nvidia  };
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libva
+      mesa-demos
+      vulkan-tools
+    ];
   };
 
   services.displayManager.sddm = {

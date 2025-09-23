@@ -12,7 +12,7 @@
 
   # 32-bit drivers (needed for Proton)
   hardware.graphics.enable32Bit = true;
-  hardware.nvidia.modesetting.enable = true;
+#NVidia  hardware.nvidia.modesetting.enable = true;
 
   # optional: Proton-GE updater
   environment.systemPackages = with pkgs; [
@@ -21,7 +21,8 @@
 
   services.xserver = {
     enable = true; # pulls in Xwayland – needed even on Wayland
-    videoDrivers = [ "nvidia" ]; # use the proprietary driver
+    videoDrivers = [ "amdgpu" ]; # use the proprietary driver
+  #Nvidia  videoDrivers = [ "nvidia" ];
   };
 
   programs.gamemode.enable = true;
