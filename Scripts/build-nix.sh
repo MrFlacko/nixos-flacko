@@ -12,6 +12,7 @@ deploy() {
 }
 
 rebuild() {
+  sudo nix-channel --update
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix"
 }
 

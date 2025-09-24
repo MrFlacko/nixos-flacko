@@ -12,7 +12,7 @@
     google-chrome vesktop thunderbird libreoffice-still
     ranger util-linux usbutils htop
     peek nix-output-monitor neovim
-    vscode.fhs gedit caprine git qalculate-qt
+    vscode.fhs gedit git qalculate-qt caprine
     nh # Nix Helper
     wayland-utils weston 
     filezilla

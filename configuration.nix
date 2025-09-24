@@ -11,7 +11,7 @@ let cmod = {
     virtmanager = false;
     display-plasma = false;
     display-cinnamon = true;
-    jellyfin = true;
+    jellyfin = false;
     audacity = true;
     nfs = false;
   };
@@ -73,10 +73,7 @@ in {
     openFirewall = true;
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;  # you likely already need this for Packet Tracer
-    permittedInsecurePackages = [ "qtwebengine-5.15.19" ];
-  };
+  nixpkgs.config.permittedInsecurePackages = [ "qtwebengine-5.15.19" ];
 
 
   system.stateVersion = "25.05"; 
