@@ -9,3 +9,12 @@ download it and run
 $ nix-store --add-fixed sha256 ~/Downloads/CiscoPacketTracer822_amd64_signed.deb
 this should store it permanently
 build should be successful
+
+### Satisfactory Mods
+## https://ficsit.app/ download
+mkdir -p ~/Applications ~/.local/bin
+mv ./SatisfactoryModManager_linux_amd64.AppImage ~/Applications/SMM.AppImage
+printf '%s\n' '#!/usr/bin/env bash' \
+'nix run nixpkgs#appimage-run -- ~/Applications/SMM.AppImage "$@"' > ~/.local/bin/smm
+chmod +x ~/.local/bin/smm
+# smm to run

@@ -10,5 +10,6 @@
     nixopen = "code /home/flacko/.config/nix-config";
     pkgedit = "code /home/flacko/.config/nix-config/packages.nix";
     traceroute = "mtr";
+    smm = "~/.local/bin/smm";
   };
 }
