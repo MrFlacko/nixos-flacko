@@ -20,6 +20,7 @@
     pkgs.r2modman
     # mattermost-desktop
     # gnupg pinentry
+    prismlauncher
   ];
   programs.gnupg.agent = {
     enable = true;
