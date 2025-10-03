@@ -6,7 +6,7 @@
   users.groups.libvirtd.members = ["flacko"];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;  
-  virtualisation.libvirtd.allowedBridges = [ "default" ];
+  virtualisation.libvirtd.allowedBridges = [ "br0" ];
 
   home-manager.users.flacko = { pkgs, ... }: {
     dconf.settings = {

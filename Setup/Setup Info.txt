@@ -18,3 +18,16 @@ printf '%s\n' '#!/usr/bin/env bash' \
 'nix run nixpkgs#appimage-run -- ~/Applications/SMM.AppImage "$@"' > ~/.local/bin/smm
 chmod +x ~/.local/bin/smm
 # smm to run
+
+## Virtmanager Nix Br0
+# Create bridge (DHCP)
+sudo nmcli con add type bridge ifname br0 con-name br0 ipv4.method auto ipv6.method auto
+sudo nmcli con add type bridge-slave ifname eno1 master br0 con-name br0-slave-eno1
+sudo nmcli con mod br0 connection.autoconnect yes
+sudo nmcli con mod "Wired connection 1" connection.autoconnect no
+sudo nmcli con down "Wired connection 1" || true
+sudo nmcli con up br0
+# Verify
+nmcli -f NAME,TYPE,DEVICE,STATE con
+ip -br a show br0
+bridge link
