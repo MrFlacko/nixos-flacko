@@ -14,6 +14,8 @@
   services.resolved.enable = true;
   services.dbus.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 25565 2022 ];
+
   # Disable reverse-path filtering – without this the tunnel
   # comes up, packets get dropped, the client reconnects forever.
   networking.firewall.checkReversePath = false;
