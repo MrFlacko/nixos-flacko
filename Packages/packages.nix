@@ -21,6 +21,7 @@
     # mattermost-desktop
     # gnupg pinentry
     prismlauncher
+    guvcview
   ];
   programs.gnupg.agent = {
     enable = true;
