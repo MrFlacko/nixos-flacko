@@ -27,7 +27,12 @@ sudo nmcli con mod br0 connection.autoconnect yes
 sudo nmcli con mod "Wired connection 1" connection.autoconnect no
 sudo nmcli con down "Wired connection 1" || true
 sudo nmcli con up br0
+
 # Verify
 nmcli -f NAME,TYPE,DEVICE,STATE con
 ip -br a show br0
 bridge link
+
+# add unstable
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+

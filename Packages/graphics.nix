@@ -26,7 +26,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      vaapiVdpau
+      libva-vdpau-driver
       libva
       mesa-demos
       vulkan-tools
