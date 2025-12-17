@@ -24,6 +24,7 @@
     # gnupg pinentry
     prismlauncher
     guvcview
+    nautilus
   ];
   programs.gnupg.agent = {
     enable = true;
