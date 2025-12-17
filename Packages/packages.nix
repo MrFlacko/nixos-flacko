@@ -8,11 +8,13 @@
   services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wget git neofetch btop qbittorrent mpv
-    google-chrome vesktop thunderbird libreoffice-still
+    #vesktop
+    discord
+    wget git neofetch btop qbittorrent mpv libplacebo
+    google-chrome thunderbird libreoffice-still
     ranger util-linux usbutils htop
     peek nix-output-monitor neovim
-    vscode.fhs gedit git qalculate-qt caprine
+    vscode.fhs gedit qalculate-qt caprine
     nh # Nix Helper
     wayland-utils weston 
     filezilla
@@ -28,6 +30,16 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
+programs.nix-ld = {
+  enable = true;
+  libraries = with pkgs; [
+    gtk3 glib gdk-pixbuf pango cairo atk at-spi2-core gsettings-desktop-schemas
+    libxkbcommon libglvnd mesa libdrm
+    xorg.libX11 xorg.libXext xorg.libXfixes xorg.libXcomposite xorg.libXcursor
+    xorg.libXi xorg.libXrandr xorg.libXrender xorg.libXdamage xorg.libxcb xorg.libxshmfence
+    nss nspr alsa-lib cups zlib libuuid expat fontconfig freetype stdenv.cc.cc.lib
+  ];
+};
 
   nixpkgs.overlays = [
     (final: prev: {
