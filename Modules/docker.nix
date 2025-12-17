@@ -24,6 +24,6 @@
   ];
 
   virtualisation.docker.daemon.settings = {
-    data-root = "/mnt/8TBDrive/VMs/Docker";
+    data-root = "/var/lib/docker";
   };
 }
