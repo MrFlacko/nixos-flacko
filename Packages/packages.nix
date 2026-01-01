@@ -7,6 +7,13 @@
   programs.firefox.enable = true;
   services.flatpak.enable = true;
 
+  
+# environment.sessionVariables = {
+#   QT_IM_MODULE = "qtvirtualkeyboard";
+#   GTK_IM_MODULE = "qtvirtualkeyboard";
+#   XMODIFIERS = "@im=qtvirtualkeyboard";
+# };
+
   environment.systemPackages = with pkgs; [
     #vesktop
     discord
@@ -25,6 +32,20 @@
     prismlauncher
     guvcview
     nautilus
+    pinta
+    # kdePackages.plasma-keyboard
+    # maliit-keyboard
+    # hunspell
+    # hunspellDicts.en_US
+    # qt6.qtvirtualkeyboard
+    (pkgs.makeDesktopItem {
+    name = "blackscreen";
+    desktopName = "BlackScreen";
+    icon = "view-refresh";
+    exec = "/etc/nixos/Scripts/blackscreen.sh";
+    terminal = true;
+    })
+    
   ];
   programs.gnupg.agent = {
     enable = true;
