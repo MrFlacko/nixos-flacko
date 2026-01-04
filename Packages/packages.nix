@@ -33,25 +33,22 @@
     guvcview
     nautilus
     pinta
-    # kdePackages.plasma-keyboard
-    # maliit-keyboard
-    # hunspell
-    # hunspellDicts.en_US
-    # qt6.qtvirtualkeyboard
+
     (pkgs.makeDesktopItem {
-    name = "blackscreen";
-    desktopName = "BlackScreen";
-    icon = "view-refresh";
-    exec = "/etc/nixos/Scripts/blackscreen.sh";
-    terminal = true;
+      name = "blackscreen";
+      desktopName = "BlackScreen";
+      icon = "view-refresh";
+      exec = "/etc/nixos/Scripts/blackscreen.sh";
+      terminal = true;
     })
-    
   ];
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
+  
 programs.nix-ld = {
   enable = true;
   libraries = with pkgs; [
