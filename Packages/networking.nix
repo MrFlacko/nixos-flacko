@@ -20,6 +20,8 @@
   # comes up, packets get dropped, the client reconnects forever.
   networking.firewall.checkReversePath = false;
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.rp_filter" = 2;
     "net.ipv4.conf.default.rp_filter" = 2;

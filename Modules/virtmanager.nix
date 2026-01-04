@@ -7,6 +7,9 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;  
   virtualisation.libvirtd.allowedBridges = [ "br0" ];
+  
+  # GNS3
+  environment.systemPackages = with pkgs; [ gns3-gui ];
 
   home-manager.users.flacko = { pkgs, ... }: {
     dconf.settings = {
