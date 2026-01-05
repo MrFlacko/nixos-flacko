@@ -16,6 +16,10 @@ rebuild() {
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix"
 }
 
+clean() {
+  sudo nix-collect-garbage --delete-older-than 30d
+}
+
 push_commit() {
   cd "$CONFIG"
   git add .
@@ -25,7 +29,7 @@ push_commit() {
   git push origin "$BRANCH"
 }
 
-deploy && rebuild && {
+deploy && rebuild && clean && {
   read -rp "Build succeeded. Commit to Git? [y/N] " yn
   [[ $yn =~ ^[Yy]$ ]] && push_commit || echo "Skipping commit."
 }

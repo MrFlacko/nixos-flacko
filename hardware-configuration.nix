@@ -13,6 +13,8 @@
   boot.supportedFilesystems = [ "ntfs" ];
   boot.blacklistedKernelModules = [ "tpm" "tpm_tis" "tpm_crb" ];
 
+  boot.loader.grub.configurationLimit = 10;
+
   swapDevices = [ { device = "/dev/disk/by-uuid/5311896b-fede-4e76-80b0-cc629e42a441"; } ];
 
   # Root Filesystem NVMe SSD
