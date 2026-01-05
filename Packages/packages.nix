@@ -33,7 +33,7 @@
     guvcview
     nautilus
     pinta
-    joplin
+    joplin-desktop
     baobab
 
     (pkgs.makeDesktopItem {
