@@ -33,6 +33,8 @@
     guvcview
     nautilus
     pinta
+    joplin
+    baobab
 
     (pkgs.makeDesktopItem {
       name = "blackscreen";
