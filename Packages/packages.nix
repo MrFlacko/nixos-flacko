@@ -7,7 +7,7 @@
     mpv libplacebo peek guvcview pinta dia
     libreoffice-still qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
-    wget neofetch btop htop ranger util-linux usbutils
+    wget neofetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
   
@@ -27,7 +27,19 @@
   services.sunshine = {
     enable = true;
     autoStart = true;
-    capSysAdmin = true;  # fixes the KMS capture CAP_SYS_ADMIN error on Wayland
+    capSysAdmin = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser ];
+    openFirewall = true;
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
   
@@ -36,18 +48,18 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
-  
-programs.nix-ld = {
-  enable = true;
-  libraries = with pkgs; [
-    gtk3 glib gdk-pixbuf pango cairo atk at-spi2-core gsettings-desktop-schemas
-    libxkbcommon libglvnd mesa libdrm
-    xorg.libX11 xorg.libXext xorg.libXfixes xorg.libXcomposite xorg.libXcursor
-    xorg.libXi xorg.libXrandr xorg.libXrender xorg.libXdamage xorg.libxcb xorg.libxshmfence
-    nss nspr alsa-lib cups zlib libuuid expat fontconfig freetype stdenv.cc.cc.lib
-  ];
-};
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      gtk3 glib gdk-pixbuf pango cairo atk at-spi2-core gsettings-desktop-schemas
+      libxkbcommon libglvnd mesa libdrm
+      xorg.libX11 xorg.libXext xorg.libXfixes xorg.libXcomposite xorg.libXcursor
+      xorg.libXi xorg.libXrandr xorg.libXrender xorg.libXdamage xorg.libxcb xorg.libxshmfence
+      nss nspr alsa-lib cups zlib libuuid expat fontconfig freetype stdenv.cc.cc.lib
+    ];
+  };
+  
   nixpkgs.overlays = [
     (final: prev: {
       layer-shell-qt = final.kdePackages.layer-shell-qt;
@@ -56,5 +68,4 @@ programs.nix-ld = {
       };
     })
   ];
-  
 }

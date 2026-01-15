@@ -50,7 +50,6 @@ in {
   ;
   
   services.displayManager.defaultSession = defaultSession;
-  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
@@ -61,20 +60,7 @@ in {
     cores = 0;
   };
 
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.brlaser ];
-    openFirewall = true;
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
   nixpkgs.config.permittedInsecurePackages = [ "qtwebengine-5.15.19" ];
-
 
   system.stateVersion = "25.05"; 
 }

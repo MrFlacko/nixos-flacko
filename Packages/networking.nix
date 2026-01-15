@@ -50,16 +50,16 @@
   # programs.mtr.enable = true;
   # services.mtr-exporter.enable = true;
 
-  ## Extra Hosts 
-  networking.extraHosts = ''
-    172.16.0.10 watch.flacko.net
-    172.16.0.10 status.flacko.net
-    172.16.0.10 request.flacko.net
+  # ## Extra Hosts 
+  # networking.extraHosts = ''
+  #   172.16.0.10 watch.flacko.net
+  #   172.16.0.10 status.flacko.net
+  #   172.16.0.10 request.flacko.net
 
-    0.0.0.0 paradise-s1.battleye.com
-    0.0.0.0 test-s1.battleye.com
-    0.0.0.0 paradiseenhanced-s1.battleye.com
-  '';
+  #   0.0.0.0 paradise-s1.battleye.com
+  #   0.0.0.0 test-s1.battleye.com
+  #   0.0.0.0 paradiseenhanced-s1.battleye.com
+  # '';
 
   boot.kernelModules = [ "wireguard" ];
 
