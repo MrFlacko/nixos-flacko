@@ -34,9 +34,8 @@ push_commit() {
 }
 
 deploy
-[[ ${1:-} != "--fast" ]] && rebuild
 [[ ${1:-} == "--fast" ]] && rebuild_fast
-clean && {
+[[ ${1:-} != "--fast" ]] && rebuild && clean && {
   read -rp "Build succeeded. Commit to Git? [y/N] " yn
   [[ $yn =~ ^[Yy]$ ]] && push_commit || echo "Skipping commit."
 }
