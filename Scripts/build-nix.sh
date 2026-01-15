@@ -17,7 +17,7 @@ rebuild() {
 }
 
 rebuild_fast() {
-  nh os switch --fast --no-boot -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix"
+  sudo nixos-rebuild switch --no-build-nix --no-bootloader -I nixos-config=/etc/nixos/configuration.nix
 }
 
 clean() {
