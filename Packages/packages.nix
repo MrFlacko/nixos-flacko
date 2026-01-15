@@ -18,7 +18,7 @@
     #vesktop
     discord
     wget git neofetch btop qbittorrent mpv libplacebo
-    google-chrome thunderbird libreoffice-still
+    google-chrome thunderbird libreoffice-still vivaldi
     ranger util-linux usbutils htop
     peek nix-output-monitor neovim
     vscode.fhs gedit qalculate-qt caprine
@@ -35,6 +35,7 @@
     pinta
     joplin-desktop
     baobab
+    parsec-bin
 
     (pkgs.makeDesktopItem {
       name = "blackscreen";
@@ -45,6 +46,13 @@
     })
   ];
 
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;  # fixes the KMS capture CAP_SYS_ADMIN error on Wayland
+    openFirewall = true;
+  };
+  
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

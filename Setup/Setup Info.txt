@@ -36,3 +36,6 @@ bridge link
 # add unstable
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 
+##Surfshark
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub com.surfshark.Surfshark

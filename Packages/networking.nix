@@ -14,7 +14,17 @@
   services.resolved.enable = true;
   services.dbus.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 80 443 8080 25565 2022 ];
+  networking.firewall.allowedTCPPorts = [
+    47989  # Sunshine control
+    47984  # Sunshine web UI / pairing
+    8080   # other
+    48010  # Sunshine session/aux TCP
+  ];
+  
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 47998; to = 48010; }  # streaming
+    { from = 8000; to = 9000; }  # parsec out
+  ];
 
   # Disable reverse-path filtering – without this the tunnel
   # comes up, packets get dropped, the client reconnects forever.
@@ -28,7 +38,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    protonvpn-gui
+    # protonvpn-gui
     wireguard-tools
     iptables
     networkmanager-openvpn
