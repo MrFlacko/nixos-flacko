@@ -13,11 +13,11 @@ deploy() {
 
 rebuild() {
   sudo nix-channel --update
-  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix"
+  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 
 }
 
 rebuild_fast() {
-  sudo nixos-rebuild switch --no-build-nix --no-bootloader -I nixos-config=/etc/nixos/configuration.nix
+  sudo nixos-rebuild switch --no-reexec -I nixos-config=/etc/nixos/configuration.nix
 }
 
 clean() {
