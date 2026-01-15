@@ -2,41 +2,15 @@
 { config, lib, pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-
-  programs.firefox.enable = true;
-  services.flatpak.enable = true;
-
-  
-# environment.sessionVariables = {
-#   QT_IM_MODULE = "qtvirtualkeyboard";
-#   GTK_IM_MODULE = "qtvirtualkeyboard";
-#   XMODIFIERS = "@im=qtvirtualkeyboard";
-# };
-
   environment.systemPackages = with pkgs; [
-    #vesktop
-    discord
-    wget git neofetch btop qbittorrent mpv libplacebo
-    google-chrome thunderbird libreoffice-still vivaldi
-    ranger util-linux usbutils htop
-    peek nix-output-monitor neovim
-    vscode.fhs gedit qalculate-qt caprine
-    nh # Nix Helper
-    wayland-utils weston 
-    filezilla
-    dia
-    pkgs.r2modman
-    # mattermost-desktop
-    # gnupg pinentry
-    prismlauncher
-    guvcview
-    nautilus
-    pinta
-    joplin-desktop
-    baobab
-    parsec-bin
-
+    discord google-chrome thunderbird vivaldi caprine parsec-bin filezilla
+    mpv libplacebo peek guvcview pinta dia
+    libreoffice-still qalculate-qt joplin-desktop baobab
+    git neovim vscode.fhs gedit nix-output-monitor nh
+    wget neofetch btop htop ranger util-linux usbutils
+    wayland-utils weston
+    qbittorrent nautilus prismlauncher pkgs.r2modman
+  
     (pkgs.makeDesktopItem {
       name = "blackscreen";
       desktopName = "BlackScreen";
@@ -45,6 +19,10 @@
       terminal = true;
     })
   ];
+
+  nixpkgs.config.allowUnfree = true;
+  programs.firefox.enable = true;
+  services.flatpak.enable = true;
 
   services.sunshine = {
     enable = true;
@@ -79,5 +57,4 @@ programs.nix-ld = {
     })
   ];
   
-services.teamviewer.enable = true;
 }
