@@ -3,13 +3,14 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord google-chrome thunderbird vivaldi caprine parsec-bin filezilla firefox
+    discord thunderbird vivaldi caprine parsec-bin filezilla firefox
     mpv libplacebo peek guvcview pinta dia
     libreoffice-still qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
     wget neofetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
+    
   
     (pkgs.makeDesktopItem {
       name = "blackscreen";

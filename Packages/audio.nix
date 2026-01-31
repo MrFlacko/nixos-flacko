@@ -3,6 +3,9 @@
 {
   boot.kernelModules = [ "snd_usb_audio" ];
 
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -24,5 +27,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ pipewire wireplumber ];
+  environment.systemPackages = with pkgs; [ pipewire wireplumber easyeffects ];
 }

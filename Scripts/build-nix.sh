@@ -11,6 +11,7 @@ deploy() {
   sudo chmod +x "$TARGET"/Scripts/*.sh
 }
 
+# Can just run out of the Config DIR
 rebuild() {
   sudo nix-channel --update
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 

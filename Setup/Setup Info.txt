@@ -27,6 +27,17 @@ sudo nmcli con mod br0 connection.autoconnect yes
 sudo nmcli con mod "Wired connection 1" connection.autoconnect no
 sudo nmcli con down "Wired connection 1" || true
 sudo nmcli con up br0
+# also ran this shit later on
+nmcli con mod br0-slave-eno1 ipv4.method disabled ipv6.method ignore
+nmcli con mod br0 ipv4.method auto ipv6.method auto
+nmcli con mod "Wired connection 1" connection.autoconnect no
+nmcli con down "Wired connection 1" || true
+nmcli con down br0
+sudo ip addr flush dev eno1
+sudo ip addr flush dev br0
+nmcli con up br0
+nmcli con mod br0 802-3-ethernet.cloned-mac-address permanent
+
 
 # Verify
 nmcli -f NAME,TYPE,DEVICE,STATE con
