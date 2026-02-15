@@ -10,7 +10,7 @@
     wget neofetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
-    
+    # handbrake
   
     (pkgs.makeDesktopItem {
       name = "blackscreen";

@@ -20,7 +20,9 @@
     enable = true;
     dns = "systemd-resolved";
     plugins = with pkgs; [ networkmanager-openvpn ];
-  
+    settings.main.no-auto-default = "*"; # Stop auto starting default
+    settings.dhcp.dhcp-client-id = "mac"; # Force mac dhcp client
+
     ensureProfiles.profiles = {
       br0 = {
         connection.id = "br0";
@@ -60,6 +62,7 @@
       47984 # Sunshine web UI / pairing
       8080
       48010 # Sunshine session/aux TCP
+      80 # Web
     ];
   
     allowedUDPPortRanges = [
