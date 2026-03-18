@@ -17,8 +17,14 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      libva-vdpau-driver libva mesa-demos vulkan-tools
+      libva
     ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+    MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   services.displayManager.sddm = {
