@@ -11,6 +11,7 @@
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
     wireguard-tools
+    termius
     
     # handbrake
   
