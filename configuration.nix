@@ -14,6 +14,7 @@ let cmod = {
     jellyfin = false;
     audacity = true;
     nfs = false;
+    python = true;
   };
   defaultSession =
     if cmod.display-plasma then "plasma"
@@ -47,6 +48,7 @@ in {
   ++ (if cmod.jellyfin then [ ./Modules/jellyfin.nix ] else [])
   ++ (if cmod.audacity then [ ./Modules/audacity.nix ] else [])
   ++ (if cmod.nfs then [ ./Modules/nfs.nix ] else [])
+  ++ (if cmod.python then [ ./Modules/python.nix ] else [])
   ;
   
   services.displayManager.defaultSession = defaultSession;

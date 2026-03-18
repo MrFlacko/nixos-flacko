@@ -1,2 +1,2 @@
-#!/bin/bash
-code --new-window ~/.config/nix-config
+#!/usr/bin/env bash
+code --new-window /home/flack/.config/nix-config
