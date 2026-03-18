@@ -12,7 +12,7 @@ let
     buildInputs = [
       pkgs.jack2
       pkgs.stdenv.cc.cc 
-      pkgs.xorg.libX11 
+      pkgs.libx11 
       pkgs.libGL 
     ];
 

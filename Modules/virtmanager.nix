@@ -9,7 +9,7 @@
   virtualisation.libvirtd.allowedBridges = [ "br0" ];
   
   # GNS3
-  environment.systemPackages = with pkgs; [ gns3-gui ];
+  environment.systemPackages = with pkgs; [ gns3-gui gns3-server ];
 
   home-manager.users.flacko = { pkgs, ... }: {
     dconf.settings = {

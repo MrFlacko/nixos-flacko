@@ -13,6 +13,8 @@
   environment.systemPackages = with pkgs; [ 
     wireguard-tools iptables networkmanager-openvpn mtr whois nmap 
     bind.dnsutils tcpdump iperf3 ethtool bmon wireshark
+
+    wgnord jq curl wireguard-tools openresolv
   ];
 
 ## Network Manager Setup
@@ -34,6 +36,9 @@
         bridge.mac-address = "18:C0:4D:2E:47:70";
   
         ipv4.method = "auto";
+        # ipv4.dns = "162.252.172.57;149.154.159.92"; #Surfshark
+        ipv4.dns = "103.86.96.100;103.86.99.100"; #NordVPN
+        
         ipv6.method = "ignore";
 
       };

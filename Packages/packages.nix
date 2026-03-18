@@ -7,7 +7,7 @@
     mpv libplacebo peek guvcview pinta dia
     libreoffice-still qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
-    wget neofetch btop htop ranger util-linux usbutils lm_sensors
+    wget fastfetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
     # handbrake
@@ -55,7 +55,7 @@
     libraries = with pkgs; [
       gtk3 glib gdk-pixbuf pango cairo atk at-spi2-core gsettings-desktop-schemas
       libxkbcommon libglvnd mesa libdrm
-      xorg.libX11 xorg.libXext xorg.libXfixes xorg.libXcomposite xorg.libXcursor
+      libx11 xorg.libXext xorg.libXfixes xorg.libXcomposite xorg.libXcursor
       xorg.libXi xorg.libXrandr xorg.libXrender xorg.libXdamage xorg.libxcb xorg.libxshmfence
       nss nspr alsa-lib cups zlib libuuid expat fontconfig freetype stdenv.cc.cc.lib
     ];
