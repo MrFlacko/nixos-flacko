@@ -10,8 +10,7 @@
     wget fastfetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
-    wireguard-tools
-    termius
+    wireguard-tools termius chromium
     
     # handbrake
   
