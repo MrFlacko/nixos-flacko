@@ -23,6 +23,8 @@ rebuild_fast() {
 
 clean() {
   sudo nix-collect-garbage --delete-older-than 30d
+  echo Optomizing Space...
+  sudo nix-store --optimise
 }
 
 push_commit() {

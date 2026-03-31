@@ -11,7 +11,8 @@
     wayland-utils weston
     qbittorrent nautilus prismlauncher pkgs.r2modman
     wireguard-tools termius chromium
-    
+    kdePackages.korganizer
+    kdePackages.akonadi
     # handbrake
   
     (pkgs.makeDesktopItem {

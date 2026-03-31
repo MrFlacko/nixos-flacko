@@ -36,7 +36,6 @@ in {
     ./Packages/packages.nix
     ./Packages/razer.nix
     ./Packages/graphics.nix
-    ./Packages/calendar.nix
   ]
   # Modules
   ++ (if cmod.docker then [ ./Modules/docker.nix ] else [])
