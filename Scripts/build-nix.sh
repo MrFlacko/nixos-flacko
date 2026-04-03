@@ -23,22 +23,41 @@ rebuild_fast() {
 
 clean() {
   sudo nix-collect-garbage --delete-older-than 30d
-  echo Optomizing Space...
+  echo "Optomizing Space..."
   sudo nix-store --optimise
 }
 
-push_commit() {
+gitpush() {
+  read -rp "Commit to Git? [y/N] " yn
+  [[ ! "$yn" =~ ^[Yy]$ ]] && exit_script
   cd "$CONFIG"
-  git add .
+  command git add .
   read -rp "Commit title: " t
   echo "Opening nano to add details…"
   GIT_EDITOR=nano git commit -e -m "$t"
-  git push origin "$BRANCH"
+  command git push origin "$BRANCH"
 }
 
-deploy
-[[ ${1:-} == "--fast" ]] && rebuild_fast
-[[ ${1:-} != "--fast" ]] && rebuild && clean && {
-  read -rp "Build succeeded. Commit to Git? [y/N] " yn
-  [[ $yn =~ ^[Yy]$ ]] && push_commit || echo "Skipping commit."
+help() {
+  echo 'Usage: build-nix [option]'
+  echo
+  echo "Options:"
+  echo "  --fast    Run fast rebuild, skipping git and clean"
+  echo "  --git     Commit and push config"
+  echo "  --clean   Clean old generations and optimise store"
+  echo "  --deploy  Copy config to /etc/nixos"
+  echo "  --help    Show this help message"
 }
+
+exit_script() {
+  echo Closing.
+  exit 0
+}
+
+[[ ${1:-} == "--fast" ]] && deploy && rebuild_fast && exit_script
+[[ ${1:-} == "--git" ]] && gitpush && exit_script
+[[ ${1:-} == "--clean" ]] && clean && exit_script
+[[ ${1:-} == "--deploy" ]] && deploy && exit_script
+[[ ${1:-} == "--help" ]] && help && exit_script
+[[ -z ${1:-} ]] && deploy && rebuild && clean && gitpush && exit_script
+help

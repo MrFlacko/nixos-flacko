@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
     discord thunderbird vivaldi caprine parsec-bin filezilla firefox
     mpv libplacebo peek guvcview pinta dia
-    libreoffice-still qalculate-qt joplin-desktop baobab
+    qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
     wget fastfetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
@@ -13,6 +13,8 @@
     wireguard-tools termius chromium
     kdePackages.korganizer
     kdePackages.akonadi
+    libreoffice-qt-still
+
     # handbrake
   
     (pkgs.makeDesktopItem {
@@ -23,6 +25,7 @@
       terminal = true;
     })
   ];
+
 
   nixpkgs.config.allowUnfree = true;
   programs.firefox.enable = true;
