@@ -61,8 +61,8 @@
     libraries = with pkgs; [
       gtk3 glib gdk-pixbuf pango cairo atk at-spi2-core gsettings-desktop-schemas
       libxkbcommon libglvnd mesa libdrm
-      libx11 xorg.libXext xorg.libXfixes xorg.libXcomposite xorg.libXcursor
-      xorg.libXi xorg.libXrandr xorg.libXrender xorg.libXdamage xorg.libxcb xorg.libxshmfence
+      libx11 libxext libxfixes libxcomposite libxcursor
+      libxi libxrandr libxrender libxdamage libxcb libxshmfence
       nss nspr alsa-lib cups zlib libuuid expat fontconfig freetype stdenv.cc.cc.lib
     ];
   };
