@@ -3,7 +3,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord thunderbird vivaldi caprine parsec-bin filezilla firefox
+    discord thunderbird caprine parsec-bin filezilla firefox
     mpv libplacebo peek guvcview pinta dia
     qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
@@ -14,6 +14,7 @@
     kdePackages.korganizer
     kdePackages.akonadi
     libreoffice-qt-still
+    thunar
 
     # handbrake
   
