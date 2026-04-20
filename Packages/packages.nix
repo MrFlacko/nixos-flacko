@@ -9,7 +9,7 @@
     git neovim vscode.fhs gedit nix-output-monitor nh
     wget fastfetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
-    qbittorrent nautilus prismlauncher pkgs.r2modman
+    qbittorrent prismlauncher pkgs.r2modman
     wireguard-tools termius chromium
     kdePackages.korganizer
     kdePackages.akonadi

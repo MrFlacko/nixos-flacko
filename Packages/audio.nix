@@ -5,11 +5,15 @@
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
+  # Vesktop
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+
   services.pipewire = {
     enable = true;
     audio.enable = true;
     pulse.enable = true;
-    alsa.enable = true;
+    alsa.enable = true; 
     alsa.support32Bit = true;
 
     wireplumber = {

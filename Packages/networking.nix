@@ -12,7 +12,7 @@
 
   environment.systemPackages = with pkgs; [ 
     wireguard-tools iptables networkmanager-openvpn mtr whois nmap 
-    bind.dnsutils tcpdump iperf3 ethtool bmon wireshark
+    bind.dnsutils tcpdump iperf3 ethtool bmon
 
     wgnord jq curl wireguard-tools openresolv
   ];

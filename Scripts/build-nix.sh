@@ -13,12 +13,12 @@ deploy() {
 
 # Can just run out of the Config DIR
 rebuild() {
-  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 
+  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet 
 }
 
 update() {
   sudo nix-channel --update
-  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 
+  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet
 }
 
 rebuild_fast() {
@@ -65,5 +65,5 @@ exit_script() {
 [[ ${1:-} == "--update" ]] && deploy && update && clean && gitpush && exit_script
 [[ ${1:-} == "--deploy" ]] && deploy && exit_script
 [[ ${1:-} == "--help" ]] && help && exit_script
-[[ -z ${1:-} ]] && deploy && rebuild && clean && gitpush && exit_script
+[[ -z ${1:-} ]] && deploy && rebuild && gitpush && exit_script
 help
