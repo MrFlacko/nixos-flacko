@@ -26,7 +26,7 @@ rebuild_fast() {
 }
 
 clean() {
-  sudo nix-collect-garbage --delete-older-than 30d
+  sudo nix-collect-garbage --delete-older-than 7d
   echo "Optomizing Space..."
   sudo nix-store --optimise
 }

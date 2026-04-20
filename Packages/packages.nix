@@ -16,6 +16,8 @@
     kdePackages.dolphin
     kdePackages.ksystemlog
     libreoffice-qt-still
+    qdiskinfo
+    
     (pkgs.makeDesktopItem {
       name = "blackscreen";
       desktopName = "BlackScreen";
