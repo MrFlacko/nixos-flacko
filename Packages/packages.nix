@@ -3,7 +3,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord thunderbird caprine parsec-bin filezilla firefox
+    vesktop thunderbird caprine parsec-bin filezilla firefox
     mpv libplacebo peek guvcview pinta dia
     qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
@@ -13,18 +13,9 @@
     wireguard-tools termius chromium
     kdePackages.korganizer
     kdePackages.akonadi
+    kdePackages.dolphin
     kdePackages.ksystemlog
     libreoffice-qt-still
-    thunar
-
-
-    gst_all_1.gstreamer
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-good
-    gst_all_1.gst-plugins-bad
-    gst_all_1.gst-libav
-    # handbrake
-  
     (pkgs.makeDesktopItem {
       name = "blackscreen";
       desktopName = "BlackScreen";

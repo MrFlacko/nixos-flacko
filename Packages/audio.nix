@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ config, lib, pkgs, modulesPath, cmod, ... }:
 {
   boot.kernelModules = [ "snd_usb_audio" ];
 
@@ -8,8 +7,10 @@
 
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
+    audio.enable = true;
     pulse.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
 
     wireplumber = {
       enable = true;
@@ -20,12 +21,18 @@
               { "node.name" = "~alsa_input.*"; }
               { "node.name" = "~alsa_output.*"; }
             ];
-            actions.update-props = { "session.suspend-timeout-seconds" = 0; };
+            actions.update-props = {
+              "session.suspend-timeout-seconds" = 0;
+            };
           }
         ];
       };
     };
   };
 
-  environment.systemPackages = with pkgs; [ pipewire wireplumber ]; #easyeffects
+  environment.systemPackages = with pkgs; [
+    pipewire
+    wireplumber
+    # easyeffects
+  ];
 }
