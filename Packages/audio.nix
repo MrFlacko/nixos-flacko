@@ -27,5 +27,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ pipewire wireplumber easyeffects ];
+  environment.systemPackages = with pkgs; [ pipewire wireplumber ]; #easyeffects
 }

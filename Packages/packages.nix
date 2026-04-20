@@ -13,9 +13,16 @@
     wireguard-tools termius chromium
     kdePackages.korganizer
     kdePackages.akonadi
+    kdePackages.ksystemlog
     libreoffice-qt-still
     thunar
 
+
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-libav
     # handbrake
   
     (pkgs.makeDesktopItem {

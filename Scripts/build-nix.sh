@@ -13,6 +13,10 @@ deploy() {
 
 # Can just run out of the Config DIR
 rebuild() {
+  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 
+}
+
+update() {
   sudo nix-channel --update
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" 
 }
@@ -45,6 +49,7 @@ help() {
   echo "  --fast    Run fast rebuild, skipping git and clean"
   echo "  --git     Commit and push config"
   echo "  --clean   Clean old generations and optimise store"
+  echo "  --update  Updates and builds"
   echo "  --deploy  Copy config to /etc/nixos"
   echo "  --help    Show this help message"
 }
@@ -57,6 +62,7 @@ exit_script() {
 [[ ${1:-} == "--fast" ]] && deploy && rebuild_fast && exit_script
 [[ ${1:-} == "--git" ]] && gitpush && exit_script
 [[ ${1:-} == "--clean" ]] && clean && exit_script
+[[ ${1:-} == "--update" ]] && deploy && update && clean && gitpush && exit_script
 [[ ${1:-} == "--deploy" ]] && deploy && exit_script
 [[ ${1:-} == "--help" ]] && help && exit_script
 [[ -z ${1:-} ]] && deploy && rebuild && clean && gitpush && exit_script

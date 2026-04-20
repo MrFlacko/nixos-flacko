@@ -11,6 +11,8 @@
     pkgedit = "code /home/flacko/.config/nix-config/packages.nix";
     traceroute = "mtr";
     smm = "~/.local/bin/smm";
+    ff = "fastfetch";
+    ffl = "fastfetch -l none";
   };
 
   programs.bash.interactiveShellInit = ''
