@@ -23,7 +23,8 @@ let
     name = "grayjay";
     targetPkgs = pkgs: with pkgs; [
       icu openssl libsecret dbus udev zlib libgbm
-      libX11 libXcomposite libXdamage libXext libXfixes libXrandr libxcb
+      # libX11 libXcomposite libXdamage libXext libXfixes libXrandr libxcb
+      xorg.libX11 xorg.libXcomposite xorg.libXdamage xorg.libXext xorg.libXfixes xorg.libXrandr xorg.libxcb
       gtk3 glib nss nspr atk cups libdrm expat mesa
       libxkbcommon pango cairo alsa-lib libGL
       stdenv.cc.cc.lib

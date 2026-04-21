@@ -8,7 +8,6 @@
   hardware.enableRedistributableFirmware = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm amdgpu_top vulkan-tools pciutils corectrl rocmPackages.rocm-smi

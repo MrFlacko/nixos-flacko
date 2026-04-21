@@ -8,8 +8,8 @@
   services.displayManager.sddm.wayland.enable = true;
 
   # Work-around: tell KWin to skip explicit-sync
-  # (stops the page-flip time-outs that freeze)
-  environment.sessionVariables = {
-    KWIN_DRM_NO_IMPLICIT_SYNC = "1";
-  };
+  # (stops the page-flip time-outs that freeze)S
+  # environment.sessionVariables = {
+  #   KWIN_DRM_NO_IMPLICIT_SYNC = "1";
+  # };
 }

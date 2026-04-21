@@ -9,8 +9,8 @@ let cmod = {
     keyring = true;
     packettracer = false;
     virtmanager = true;
-    display-plasma = true;
-    display-cinnamon = false;
+    display-plasma = false;
+    display-cinnamon = true;
     jellyfin = true;
     audacity = true;
     nfs = false;
@@ -57,6 +57,8 @@ in {
   services.displayManager.defaultSession = defaultSession;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
   
   # Experimental Features Nix
   nix.settings = {
