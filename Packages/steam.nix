@@ -7,11 +7,21 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraCompatPackages = with pkgs; [
+      gst_all_1.gst-plugins-base
+      gst_all_1.gstreamer
+      gst_all_1.gst-plugins-good
+      gst_all_1.gst-plugins-bad
+      gst_all_1.gst-libav
+      proton-ge-bin 
+    ];
   };
 
   # 32-bit drivers (needed for Proton)
-  hardware.graphics.enable32Bit = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   # NVidia  hardware.nvidia.modesetting.enable = true;
 
   # optional: Proton-GE updater

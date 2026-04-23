@@ -22,7 +22,7 @@ update() {
 }
 
 rebuild_fast() {
-  sudo nixos-rebuild switch --no-reexec -I nixos-config=/etc/nixos/configuration.nix
+  sudo nixos-rebuild switch -I nixos-config=/etc/nixos/configuration.nix
 }
 
 clean() {

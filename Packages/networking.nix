@@ -72,7 +72,8 @@
   
     allowedUDPPortRanges = [
       { from = 47998; to = 48010; } # Sunshine streaming
-      { from = 8000;  to = 9000;  } # Parsec
+      { from = 8000; to = 9000;  } # Parsec
+      { from = 16261; to = 16262; } # Zomboid
     ];
   };
 
