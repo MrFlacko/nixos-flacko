@@ -3,8 +3,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord thunderbird caprine parsec-bin filezilla firefox
-    mpv libplacebo peek guvcview pinta dia
+    discord thunderbird caprine parsec-bin filezilla
+    mpv libplacebo peek guvcview pinta dia micro
     qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
     wget fastfetch btop htop ranger util-linux usbutils lm_sensors
@@ -29,7 +29,7 @@
 
 
   nixpkgs.config.allowUnfree = true;
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
 
