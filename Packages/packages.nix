@@ -17,6 +17,7 @@
     kdePackages.ksystemlog
     libreoffice-qt-still
     qdiskinfo
+    tuxguitar
     
     (pkgs.makeDesktopItem {
       name = "blackscreen";
