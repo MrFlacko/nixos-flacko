@@ -13,6 +13,7 @@
   # users.extraGroups.docker.members = [ "username-with-access-to-socket" ];
 
   # Using Docker in Rootless mode
+  # Maybe change to fales to fix non root issues
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
