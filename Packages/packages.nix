@@ -3,7 +3,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord thunderbird caprine parsec-bin filezilla
+    thunderbird caprine parsec-bin filezilla
     mpv libplacebo peek guvcview pinta dia micro
     qalculate-qt joplin-desktop baobab
     git neovim vscode.fhs gedit nix-output-monitor nh
@@ -17,7 +17,8 @@
     kdePackages.ksystemlog
     libreoffice-qt-still
     qdiskinfo
-    tuxguitar
+    tuxguitar vlc
+    vesktop
     
     (pkgs.makeDesktopItem {
       name = "blackscreen";
