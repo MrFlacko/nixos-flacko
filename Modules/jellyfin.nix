@@ -4,4 +4,9 @@
   environment.systemPackages = with pkgs; [
     jellyfin-media-player
   ];
+  
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
 }
