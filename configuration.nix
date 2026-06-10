@@ -39,6 +39,7 @@ in {
     ./Packages/dictionaries.nix
     ./Packages/gstreamer.nix
     ./Packages/grayjay.nix
+    ./Packages/prism.nix
   ]
   # Modules
   ++ (if cmod.docker then [ ./Modules/docker.nix ] else [])

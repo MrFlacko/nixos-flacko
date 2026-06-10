@@ -9,8 +9,8 @@
     git neovim vscode.fhs gedit nix-output-monitor nh
     wget fastfetch btop htop ranger util-linux usbutils lm_sensors
     wayland-utils weston
-    qbittorrent prismlauncher pkgs.r2modman
-    wireguard-tools termius chromium
+    qbittorrent pkgs.r2modman
+    wireguard-tools chromium
     kdePackages.korganizer
     kdePackages.akonadi
     kdePackages.dolphin
@@ -19,7 +19,7 @@
     qdiskinfo
     tuxguitar vlc
     vesktop
-    
+
     (pkgs.makeDesktopItem {
       name = "blackscreen";
       desktopName = "BlackScreen";
@@ -36,7 +36,7 @@
   services.tailscale.enable = true;
 
   services.sunshine = {
-    enable = true;
+    enable = false;
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;
