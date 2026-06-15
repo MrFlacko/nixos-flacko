@@ -19,6 +19,7 @@
     qdiskinfo
     tuxguitar vlc kdePackages.ark
     vesktop
+    github-desktop
 
     (pkgs.makeDesktopItem {
       name = "blackscreen";
