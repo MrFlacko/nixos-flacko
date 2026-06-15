@@ -17,7 +17,7 @@
     kdePackages.ksystemlog
     libreoffice-qt-still
     qdiskinfo
-    tuxguitar vlc
+    tuxguitar vlc kdePackages.ark
     vesktop
 
     (pkgs.makeDesktopItem {

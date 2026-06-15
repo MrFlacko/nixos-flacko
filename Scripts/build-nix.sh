@@ -14,17 +14,18 @@ deploy() {
 # Can just run out of the Config DIR
 rebuild() {
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet
-  [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] && kbuildsycoca6
 }
 
 update() {
   sudo nix-channel --update
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet
-  [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] && kbuildsycoca6
 }
 
 rebuild_fast() {
   sudo nixos-rebuild switch -I nixos-config=/etc/nixos/configuration.nix
+}
+
+updatekdepkg() {
   [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] && kbuildsycoca6
 }
 
@@ -62,11 +63,11 @@ exit_script() {
   exit 0
 }
 
-[[ ${1:-} == "--fast" ]] && deploy && rebuild_fast && exit_script
+[[ ${1:-} == "--fast" ]] && deploy && rebuild_fast && updatekdepkg && exit_script
 [[ ${1:-} == "--git" ]] && gitpush && exit_script
 [[ ${1:-} == "--clean" ]] && clean && exit_script
-[[ ${1:-} == "--update" ]] && deploy && update && clean && gitpush && exit_script
+[[ ${1:-} == "--update" ]] && deploy && update && updatekdepkg && clean && gitpush && exit_script
 [[ ${1:-} == "--deploy" ]] && deploy && exit_script
 [[ ${1:-} == "--help" ]] && help && exit_script
-[[ -z ${1:-} ]] && deploy && rebuild && gitpush && exit_script
+[[ -z ${1:-} ]] && deploy && rebuild && updatekdepkg && gitpush && exit_script
 help
