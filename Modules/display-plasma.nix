@@ -12,4 +12,8 @@
   # environment.sessionVariables = {
   #   KWIN_DRM_NO_IMPLICIT_SYNC = "1";
   # };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+  };
 }

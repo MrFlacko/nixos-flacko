@@ -13,6 +13,8 @@
     smm = "~/.local/bin/smm";
     ff = "fastfetch";
     ffl = "fastfetch -l none";
+    linkyup = "cd /home/flacko/Docker/Linky && docker compose up -d";
+    linkydown = "cd /home/flacko/Docker/Linky && docker compose down";
   };
 
   programs.bash.interactiveShellInit = ''
