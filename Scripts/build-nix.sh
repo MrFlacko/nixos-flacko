@@ -13,16 +13,19 @@ deploy() {
 
 # Can just run out of the Config DIR
 rebuild() {
-  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet 
+  nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet
+  [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] && kbuildsycoca6
 }
 
 update() {
   sudo nix-channel --update
   nh os switch -f '<nixpkgs/nixos>' -- -I nixos-config="$TARGET/configuration.nix" --quiet
+  [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] && kbuildsycoca6
 }
 
 rebuild_fast() {
   sudo nixos-rebuild switch -I nixos-config=/etc/nixos/configuration.nix
+  [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] && kbuildsycoca6
 }
 
 clean() {
