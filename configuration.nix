@@ -28,6 +28,7 @@ in {
     ./home-manager.nix
     ./users.nix
     ./langtime.nix
+    ./drivemounts.nix
 
     # Packages
     ./Packages/networking.nix
